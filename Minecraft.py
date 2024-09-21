@@ -13,6 +13,10 @@ from Models import Block, WorldEdit
 
 
 p = FirstPersonController()
+p.x = CHUNKSIZE/2
+p.z = CHUNKSIZE/2
+p.y = 20
+p.gravity = 0.5
 sky = Sky(texture = 'sky_sun')
 scene.fog_density = .8
 scene.fog_density =(50,200)
@@ -29,7 +33,7 @@ world.generate_world()
 
 
 
-camera.clip_plane_far = 20 
+
 window.fullscreen = True
 app.run()
 
