@@ -1,7 +1,8 @@
 import os
 from ursina import load_texture
-CHUNKSIZE = 15
-WORLDSIZE = 3
+CHUNKSIZE = 5
+WORLDSIZE = 10
+DETAIL_DISTANCE = 20
 BASE_DIR = os.getcwd()
 IMG_DIR = os.path.join(BASE_DIR, 'Asets\Textures')
 block_textures = []

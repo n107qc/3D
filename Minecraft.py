@@ -15,14 +15,17 @@ from Models import Block, WorldEdit
 p = FirstPersonController()
 p.x = CHUNKSIZE/2
 p.z = CHUNKSIZE/2
-p.y = 20
+p.y = 10
 p.gravity = 0.5
 sky = Sky(texture = 'sky_sun')
 scene.fog_density = .8
 scene.fog_density =(50,200)
 
-world = WorldEdit()
+world = WorldEdit(p)
 world.generate_world()
+
+def input(key):
+    p.gravity = 0.5
 
 # cube = Entity(model='cube', texture = "grass", scale=1, collider='box')
 # cube.position = (0,2,3)
