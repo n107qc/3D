@@ -1,4 +1,4 @@
-from kivy.uix.textinput import Texture
+
 from ursina import *
 from ursina import Default, camera
 from ursina.prefabs.sky import Sky
