@@ -106,12 +106,15 @@ class WorldEdit(Entity):
 
 
     def generate_world(self):
+        self.clear_world()
         for x in range(WORLDSIZE):
             for z in range(WORLDSIZE):
                 chunk_pos = (x,z)
                 if chunk_pos not in  self.chunks:
                     chunk = Chunk(chunk_pos)
                     self.chunks[chunk_pos] = chunk
+        
+        self.menu.toggele_menu()
 
 
     def save_game(self):
@@ -134,6 +137,8 @@ class WorldEdit(Entity):
             with open('save.dat', 'wb') as file:
                 pickle.dump(game_data, file)
 
+        self.menu.toggele_menu()                
+
     def clear_world(self):
         for chunk in self.chunks.values():
             for block in chunk.blocks.values():
@@ -153,6 +158,8 @@ class WorldEdit(Entity):
             tree = Tree(tree_pos)
             tree.scale = tree_scale
 
+        self.menu.toggele_menu()            
+
     def load_game (self):
         
         
@@ -167,11 +174,18 @@ class WorldEdit(Entity):
 
 
     def input(self,key):
+        
+            
+        
+        
         if key == 'k':
             self.save_game()                
 
         if key == 'l':
-            self.load_game()                
+            self.load_game()     
+
+            
+                       
                 
 
 
@@ -186,7 +200,7 @@ class WorldEdit(Entity):
                 block = mouse.hovered_entity
                 chunk = block.parent
                 del chunk.blocks[(block.x,block.y,block.z)]
-                destroy(mouse.hovered_entity)
+                destroy(block)
 
             if isinstance(mouse.hovered_entity,Tree):
                 tree = mouse.hovered_entity

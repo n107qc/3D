@@ -9,13 +9,13 @@ import os
 app = Ursina()
 from Settings import*
 from Models import Block, WorldEdit
-
+from ui import Menu
 
 
 p = FirstPersonController()
 p.x = CHUNKSIZE/2
 p.z = CHUNKSIZE/2
-p.y = 10
+p.y = 25
 p.gravity = 0.5
 sky = Sky(texture = 'sky_sun')
 scene.fog_density = .8
@@ -23,6 +23,9 @@ scene.fog_density =(50,200)
 
 world = WorldEdit(p)
 world.generate_world()
+
+menu = Menu()
+menu.toggle_menu()
 
 def input(key):
     p.gravity = 0.5
